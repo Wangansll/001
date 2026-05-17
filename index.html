@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的个人介绍</title>
+  <style>
+ body {
+ background-color: #f0f0f0; /* 背景灰 */
+ font-family: "Microsoft YaHei"; /* 字体 */
+ max-width: 700px;
+  margin: 0 auto;
+ }
+ h1 {
+ color: #e74c3c; /* 标题红色 */
+ text-align: center; /* 居中 */
+ }
+ ul {
+  justify-content: center;
+  flex-wrap: wrap;
+ display: flex;
+ list-style: none; /* 去掉圆点 */
+ padding: 0;
+ }
+ li {
+  background-color: #ffffff;
+  border-radius: 0 15px 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+ flex: 1;
+  text-align: center;
+ margin: 5px;
+ padding: 8px;
+ border-left: 4px solid #3498db; /* 左边蓝色条 */
+ }
+ .meimg {
+ width: 150px;
+ border-radius: 10px; /* 圆角 */
+ }
+ a {
+ color: #3498db;
+ text-decoration: none; /* 去掉下划线 */
+ }
+ nav{
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #201f1f;
+  color: #ffffff;
+ }
+ .nav-a a{
+  color: #ffffff;
+    display: inline-block;
+      margin: 0 8px;
+       transition: color 0.3s, transform 0.3s;
+ }
+  a:hover {
+ text-decoration: underline;
+  /* 鼠标放上去有下划线 */
+   transform: scale(1.3); /* 放大1.1倍 改1.2更大 */
+   color: red;
+ }
+ @media (max-width: 600px) {
+ /* 屏幕宽度 ≤ 600px 时生效（手机） */
+ nav{
+  gap: 8px;
+  text-align: center;
+   flex-direction: column; 
+ }
+ li{
+  min-width: 120px;
+ }
+ img{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+ }
+
+}
+.page-section{
+  opacity: 0;
+  transition: opacity 0.4s ease; /* 淡入淡出动画 */
+  position: absolute;
+   width: 100%;
+  max-width: 700px;
+}
+#home{
+  opacity: 1;
+  pointer-events: auto;
+  position: static;
+}
+#works{
+  text-align: center;
+  }
+#works img{
+    display: block;
+  margin: 0 auto;
+  width: 500px;
+  height: 300px;
+}
+#contact{
+  text-align: center;
+}
+.form{
+  display: block;
+  
+}
+.nav-a a.active{
+  color: rgb(234, 255, 0);
+ 
+}
+/* 无线循环缩放动画*/
+@keyframes pulse{
+  0%, 100% { transform: scale(1); }
+ 50% { transform: scale(1.05); }
+}
+/* 从X轴-80px 飞入*/
+
+@keyframes skillUp {
+  0%{
+    opacity: 0;
+    transform: translateX(-80PX)
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+.suaige{
+  animation: pulse 1.5s infinite ease;
+}
+ </style>
+</head>
+<body>
+
+  <nav>
+    <div>
+      <h3>👤 帅哥的主页</h3>
+    </div>
+    <div class="nav-a">
+      <a href="#home" onclick="but_nav('home');return false" id="nav-home" class="active" >首页</a>
+      <a href="#works" onclick="but_nav('works');return false" id="nav-works">作品</a>
+      <a href="#contact" onclick="but_nav('contact');return false" id="nav-contact">联系</a>
+    </div>
+  </nav>
+  <section id="home" class="page-section">
+  <h1 class="suaige">帅哥</h1>
+  <p>帅气无敌最俊朗 ✨</p>
+
+  <h2>爱好</h2>
+  <ul>
+    <li>🎤 唱</li>
+    <li>💃 跳</li>
+    <li>🎵 Rap</li>
+    <li>🏀 篮球</li>
+  </ul>
+
+  <h2>技能</h2>
+  <input type="text" placeholder="输入新技能" id="input">
+  <button id="but_tianjia">添加</button>
+  <ul id="ul_aih">
+    <!-- <li id="li_html">HTML <button id="btu_sanc">删除</button></li> -->
+  </ul>
+
+  <img src="./img/wx.webp" alt="我的照片" class="meimg">
+  <button id="but_qiehuan">切换主题</button>
+  <p>🔗 <a href="https://www.baidu.com">百度一下</a></p>
+</section>
+
+<section id="works" class="page-section">
+  <h1>作品集</h1>
+  <hr>
+  <div>
+    <h3>西瓜项目</h3>
+<img src="./img/web-1.png" alt="">
+</div>
+<hr>
+<div>
+  <h3>苹果项目</h3>
+<img src="./img/web-2.png" alt="">
+</div>
+<hr>
+<div>
+  <h3>香蕉项目</h3>
+<img src="./img/web-3.png" alt="">
+</div>
+<hr>
+</section>
+
+<section  id="contact" class="page-section">
+  <hr>
+  <h1>联系我</h1>
+  <form action="" class="form" onsubmit="return form_a()" id="myform">
+    <input type="text" placeholder="请输入你的名字" ><br><br>
+    <input type="email" placeholder="请输入邮箱" ><br><br>
+   <textarea id="msg" style="width: 165px;" rows="5" cols="30" placeholder="请输入留言内容......" maxlength="200"></textarea>
+   <br><br>
+   <span>
+   <input type="submit" value="提交">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="reset" value="重置">
+   </span> 
+  </form>
+  <hr>
+  <p>📞 电话：123456789</p>
+  <p>📧 邮箱：test@qq.com</p>
+</section>
+<script>
+//联系form表达是否为空验证
+function form_a(){
+  let text=document.getElementById('msg').value.trim()
+  if(text==''){
+    alert('请按要求填写');
+    return false
+  }else{
+    alert('提交成功')
+    document.getElementById('myform').reset()
+        return false
+  }
+}
+//导航栏切换
+function but_nav(pageId){
+  const but=document.querySelectorAll('.page-section')
+  but.forEach(page=>{
+    page.style.opacity='0'
+    page.style.pointerEvents='none'
+    page.style.position = "absolute";
+    page.style.animation = '';
+
+  })
+  let currentPage = document.getElementById(pageId);
+  currentPage.style.opacity='1';
+  
+  if(currentPage===works){
+  currentPage.style.animation = ''; 
+  currentPage.offsetWidth;
+  currentPage.style.animation='skillUp 1.5s ease';
+  }
+   currentPage.style.pointerEvents = "auto";
+  currentPage.style.position = "static";
+ 
+
+  const navLinks=document.querySelectorAll('.nav-a a');
+  navLinks.forEach(link=>link.classList.remove('active'));
+  document.getElementById('nav-'+pageId).classList.add('active')
+}
+
+let button = document.getElementById("but_qiehuan");
+let a = false;
+
+button.addEventListener("click", () => {
+  if (!a) {
+    // 变黑背景、改文字颜色、改字体
+    document.body.style.backgroundColor = '#000000';
+    document.body.style.color = 'blue';
+    button.innerHTML='切换亮色';
+    a = true; // 标记已切换
+  } else {
+    // 再点一次恢复默认
+    document.body.style.backgroundColor = '';
+    document.body.style.color = '';
+    document.body.style.fontFamily = '';
+    a = false;
+    button.innerHTML='切换暗色';
+  }
+});
+let input=document.getElementById('input')
+let but_tianjia=document.getElementById('but_tianjia')
+let ul_aih=document.getElementById('ul_aih')
+//本地存储
+const KEY='skilllocal'
+//查本地数据
+function getlocal(){
+  let res=localStorage.getItem(KEY)
+  return res ? JSON.parse(res):[]
+}
+//存本地数据
+function setlocal(arr){
+  localStorage.setItem(KEY,JSON.stringify(arr))
+}
+//渲染
+function render(){
+  let arr=getlocal()
+  let htmlStr=''
+  arr.forEach((item,index) => {
+    htmlStr+=`
+    <li>${item} <button onclick='delSkill(${index})'>删除</button></li>
+    `
+  });
+  ul_aih.innerHTML=htmlStr
+}
+//skill删除
+window.delSkill=function(index){
+  let arr=getlocal()
+  arr.splice(index,1)
+  setlocal(arr)
+  render()
+}
+but_tianjia.addEventListener('click',()=>{
+  let inputValue=input.value.trim()
+  if(!inputValue){
+    alert('请输入内容')
+    return
+  }else{
+    let arr=getlocal()
+    arr.push(inputValue)
+    setlocal(arr)
+    render()
+    input.value=''
+  }
+})
+
+// 仅第一次打开页面添加HTML，删除后不再添加
+if(!localStorage.getItem(KEY)){
+  setlocal(['HTML'])
+}
+
+render()
+</script>
+</body>
+</html>
