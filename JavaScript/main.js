@@ -93,24 +93,32 @@
       setTimeout(updateMsgCount,0)
     }
     updateMsgCount()
-    // 兜底鸡汤数据（API不可用时使用）
-    const FALLBACK_QUOTES = [
-      { content: '千里之行，始于足下。', author: '老子' },
-      { content: '学而不思则罔，思而不学则殆。', author: '孔子' },
-      { content: '天行健，君子以自强不息。', author: '《周易》' },
-      { content: '不积跬步，无以至千里。', author: '荀子' },
-      { content: '路漫漫其修远兮，吾将上下而求索。', author: '屈原' }
-    ]
-  //加载每日鸡汤数据（API被墙，暂时直用本地数据）
-  const loadQuotes=()=> {
-              renderQuote(FALLBACK_QUOTES)
+    //异步函数  加载每日鸡汤数据
+  const loadQuotes=async()=> {
+       const status=document.querySelector('.status')    
+              if(!navigator.onLine){
+                status.innerText='📡 无网络连接'
+                return
+              }
+              status.innerText='加载中...........'
+              try{
+                  const res=await fetch('https://api.quotable.io/quotes/random?limit=5')
+                  if(!res.ok) throw new Error(`HTTP  ${res.status}`)
+                  const data=await res.json()
+                status.innerText =''
+                  renderQuote(data)
+                  console.log('请求成功');
+              }catch(err){
+                  console.log(`加载失败：${err}`);
+                  status.innerText ='加载失败'
+                  console.log('若用双击打开页面，请改用本地服务器（如 VS Code Live Server）访问。');
+                  alert('若用双击打开页面，请改用本地服务器（如 VS Code Live Server');
+              }
           }
   //渲染每日鸡汤
   const renderQuote=(list)=>{
             const box=document.querySelector('.quotable')
-            // 兼容 API 返回格式和兜底数据格式
-            const items = Array.isArray(list) ? list : []
-            box.innerHTML=items.map(item=>`
+            box.innerHTML=list.map(item=>`
               <div class='quote-div'>
               <p >名言：${item.content || ''}</p>
                 <p >名人：${item.author || ''}</p>
