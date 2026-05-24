@@ -1,0 +1,6 @@
+[
+    { "title": "西瓜项目", "img": "./img/web-1.webp", "desc": "一个很酷的项目" },
+    { "title": "苹果项目", "img": "./img/web-2.webp", "desc": "另一个项目" },
+    { "title": "香蕉项目", "img": "./img/web-3.webp", "desc": "第三个项目" }
+   ]
+   

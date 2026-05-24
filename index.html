@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的个人介绍</title>
+  <link rel="stylesheet" href="CSS/style.CSS">
+</head>
+<body>
+
+  <nav class="nav-0" id="nav-0">
+    <div>
+      <h3>👤 帅哥的主页</h3>
+    </div>
+    <div class="nav-a" id="nav-a">
+      <a href="#home" onclick="but_nav('home');return false" id="nav-home" class="active" >首页</a>
+      <a href="#works" onclick="but_nav('works');return false" id="nav-works">作品</a>
+      <a href="#contact" onclick="but_nav('contact');return false" id="nav-contact">联系</a>
+    </div>
+  </nav>
+  <nav class="nav-b" id="nav-b">
+    <div>
+      <a href="#nav-a">自我介绍区</a>
+      <a href="#quote-box">心灵鸡汤区</a>
+      <a href="#">代建区</a>
+      <a href="#">代建区</a>
+      <a href="#">代建区</a>
+    </div>
+  </nav>
+      <a id="position_fixed" href="#nav-0">回到顶部</a>
+  <section id="home" class="page-section">
+ 
+  <h1 class="suaige">帅哥</h1>
+  <p>帅气无敌最俊朗 ✨</p>
+
+  <h2>爱好</h2>
+  <ul>
+    <li>🎤 唱</li>
+    <li>💃 跳</li>
+    <li>🎵 Rap</li>
+    <li>🏀 篮球</li>
+  </ul>
+
+  <h2>技能</h2>
+  <input type="search" placeholder="搜索技能" id="search">
+  <br>
+  <input type="text" placeholder="输入新技能" id="input">
+  <button id="but_tianjia">添加</button>
+  <ul id="ul_aih">
+    <!-- <li id="li_html">HTML <button id="btu_sanc">删除</button></li> -->
+  </ul>
+      
+  <div class="quote-box" id="quote-box">
+    <span class="meall"><p>自-画-像</p>
+    <img src="./img/wx.webp" alt="我的照片">
+     <button id="but_qiehuan">切换主题</button>
+  <p>🔗 <a href="https://www.baidu.com">百度一下</a></p>
+    </span>
+    <ul class="quote-en">
+      <p class="p1" >每日心灵鸡汤</p>
+      <p onclick="loadQuotes()" class="p-but">换一批</p>
+      <ul class="quotable">
+      </ul>
+      <li class="status"></li>
+    </ul>
+  </div>
+ 
+</section>
+
+<section id="works" class="page-section">
+  <h1>作品集</h1>
+  <div class="works-container">
+  <!-- <div>
+    <h3>西瓜项目</h3>
+<img src="./img/web-1.webp" alt="">
+</div>
+<div>
+  <h3>苹果项目</h3>
+<img src="./img/web-2.webp" alt="">
+</div>
+<div>
+  <h3>香蕉项目</h3>
+<img src="./img/web-3.webp" alt="">
+</div> -->
+</div>
+</section>
+
+<section  id="contact" class="page-section">
+  <hr>
+  <h1>联系我</h1>
+  <form action="" class="form" id="myform">
+    <input type="text" id="contact-name" placeholder="请输入你的名字">
+  
+    <br>  <span class="error-tip" id="name-error"></span><br>
+    <input type="email" id="contact-email" placeholder="请输入邮箱">
+   
+    <br><span class="error-tip" id="email-error"></span><br>
+    <span class="textarea-wrap">
+   <textarea id="msg" rows="5" cols="30" placeholder="请输入留言内容......" maxlength="200"></textarea>
+   <span class="msg-counter" id="msg-counter">0/200</span>
+  
+   </span>
+   <br> <span class="error-tip" id="msg-error"></span><br>
+   <span>
+   <input type="submit" value="提交">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="reset" value="重置">
+   </span> 
+  </form>
+  <hr>
+  <p>📞 电话：123456789</p>
+  <p>📧 邮箱：test@qq.com</p>
+</section>
+<script src="JavaScript/storage.js"></script>
+<script src="JavaScript/main.js"></script>
+</body>
+</html>
